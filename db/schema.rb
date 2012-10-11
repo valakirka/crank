@@ -11,13 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121011123622) do
+ActiveRecord::Schema.define(:version => 20121011150449) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
     t.string   "email"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "authors_packages", :force => true do |t|
+    t.integer "author_id"
+    t.integer "package_id"
   end
 
   create_table "maintainers", :force => true do |t|
@@ -27,6 +32,11 @@ ActiveRecord::Schema.define(:version => 20121011123622) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "maintainers_packages", :force => true do |t|
+    t.integer "maintainer_id"
+    t.integer "package_id"
+  end
+
   create_table "packages", :force => true do |t|
     t.string   "name"
     t.string   "r_version"
@@ -34,9 +44,15 @@ ActiveRecord::Schema.define(:version => 20121011123622) do
     t.text     "title"
     t.text     "description"
     t.string   "license"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.string   "version"
+    t.integer  "original_package_id"
+  end
+
+  create_table "packages_dependencies", :force => true do |t|
+    t.integer "package_id"
+    t.integer "dependency_id"
   end
 
 end
