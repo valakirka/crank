@@ -1,5 +1,5 @@
 class Package < ActiveRecord::Base
-  attr_accessible :description, :license, :name, :publication_date, :r_version, :title, :version
+  attr_accessible :description, :license, :name, :publication_date, :r_version, :title, :version, :original_package_id
 
   has_and_belongs_to_many :authors
   has_and_belongs_to_many :maintainers

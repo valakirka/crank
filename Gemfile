@@ -22,6 +22,10 @@ group :development do
   gem 'rspec-rails'
 end
 
+group :test do
+  gem 'webmock'
+end
+
 gem "treetop-dcf"
 
 # To use ActiveModel has_secure_password
