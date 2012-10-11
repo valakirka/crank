@@ -3,5 +3,5 @@ class Author < ActiveRecord::Base
 
   has_and_belongs_to_many :packages
 
-  validates_presence_of :name, :email, :message => "can't be blank"
+  validates_presence_of :name, :message => "can't be blank"
 end
